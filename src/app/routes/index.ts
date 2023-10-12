@@ -3,6 +3,7 @@ const router = express.Router();
 import { UserRoutes } from '../modules/user/user.route';
 import { AuthRoutes } from '../modules/auth/auth.route';
 import { ServiceRoutes } from '../modules/service/service.route';
+import { FeedbackRoutes } from '../modules/feedback/feedback.route';
 
 // Routes
 const moduleRoutes = [
@@ -17,7 +18,11 @@ const moduleRoutes = [
   {
     path: '/service',
     route: ServiceRoutes,
-  }
+  },
+  {
+    path: '/feedback',
+    route: FeedbackRoutes,
+  },
 ];
 
 moduleRoutes.forEach(route => {
@@ -25,3 +30,4 @@ moduleRoutes.forEach(route => {
 });
 
 export default router;
+ 
