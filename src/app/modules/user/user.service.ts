@@ -32,6 +32,7 @@ const getMyProfile = async (id: string): Promise<Partial<IUser> | null> => {
   const user = await User.findById(id).select({
     name: 1,
     email: 1,
+    mobileNumber: 1,
   });
 
   return user;
@@ -53,6 +54,7 @@ const updateMyProfile = async (
   }).select({
     name: 1,
     email: 1,
+    mobileNumber: 1,
   });
   return newUSer;
 };

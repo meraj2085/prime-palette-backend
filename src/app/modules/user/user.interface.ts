@@ -16,6 +16,7 @@ export type IUser = {
   name: UserName;
   email: string;
   password: string;
+  mobileNumber: string;
   role: UserRoles;
 };
 

@@ -7,12 +7,12 @@ const router = express.Router();
 // Routes
 router.get(
   "/my-profile",
-  // auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN),
+  auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN),
   UserController.getMyProfile
 );
 router.patch(
   "/my-profile",
-  // auth(ENUM_USER_ROLE.BUYER, ENUM_USER_ROLE.SELLER),
+  auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN),
   UserController.updateMyProfile
 );
 router.get("/:id", auth(ENUM_USER_ROLE.ADMIN), UserController.getSingleUser);
