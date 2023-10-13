@@ -62,10 +62,20 @@ const createService = async (data: IService): Promise<IService | null> => {
   return service;
 };
 
-// const getSingleUser = async (id: string): Promise<IUser | null> => {
-//   const users = await User.findById(id);
-//   return users;
-// };
+const getSingleService = async (id: string): Promise<IService | null> => {
+  const service = await Service.findById(id);
+  return service;
+};
+
+const addComment = async (data: any): Promise<IService | null> => {
+  const { id, comment } = data;
+  const service = await Service.findByIdAndUpdate(
+    id,
+    { $push: { comments: comment } },
+    { new: true }
+  );
+  return service;
+};
 
 // const updateUser = async (
 //   id: string,
@@ -84,5 +94,7 @@ const createService = async (data: IService): Promise<IService | null> => {
 
 export const ServiceService = {
   getAllServices,
+  getSingleService,
   createService,
+  addComment,
 };

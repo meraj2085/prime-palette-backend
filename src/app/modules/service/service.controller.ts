@@ -39,18 +39,31 @@ const createService: RequestHandler = catchAsync(
   }
 );
 
-// const getSingleUser: RequestHandler = catchAsync(
-//   async (req: Request, res: Response) => {
-//     const { id } = req.params;
-//     const result = await UserService.getSingleUser(id);
-//     sendResponse(res, {
-//       statusCode: httpStatus.OK,
-//       success: true,
-//       message: 'User fetched successfully',
-//       data: result,
-//     });
-//   }
-// );
+const getSingleService: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const result = await ServiceService.getSingleService(id);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Service fetched successfully',
+      data: result,
+    });
+  }
+);
+
+const addComment: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const data = req.body;
+    const result = await ServiceService.addComment(data);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Comment added successfully',
+      data: result,
+    });
+  }
+);
 
 // const updateUser: RequestHandler = catchAsync(
 //   async (req: Request, res: Response) => {
@@ -81,5 +94,7 @@ const createService: RequestHandler = catchAsync(
 
 export const ServiceController = {
   getAllServices,
+  getSingleService,
   createService,
+  addComment,
 };

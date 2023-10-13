@@ -8,6 +8,8 @@ const serviceSchema = new Schema<IService>(
     description: { type: String, required: true },
     availability: { type: Boolean, default: true },
     image_url: { type: String, required: true },
+    rating: { type: Number, default: 0 },
+    comments: { type: [String], default: [] },
   },
   {
     timestamps: true,

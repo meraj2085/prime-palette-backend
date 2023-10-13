@@ -4,6 +4,7 @@ import { UserRoutes } from '../modules/user/user.route';
 import { AuthRoutes } from '../modules/auth/auth.route';
 import { ServiceRoutes } from '../modules/service/service.route';
 import { FeedbackRoutes } from '../modules/feedback/feedback.route';
+import { AppointmentRoutes } from '../modules/appointment/appointment.route';
 
 // Routes
 const moduleRoutes = [
@@ -23,6 +24,10 @@ const moduleRoutes = [
     path: '/feedback',
     route: FeedbackRoutes,
   },
+  {
+    path: '/appointment',
+    route: AppointmentRoutes,
+  },
 ];
 
 moduleRoutes.forEach(route => {
@@ -30,4 +35,3 @@ moduleRoutes.forEach(route => {
 });
 
 export default router;
- 

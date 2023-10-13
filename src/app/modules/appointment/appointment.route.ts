@@ -1,5 +1,5 @@
 import express from 'express';
-import { ServiceController } from './service.controller';
+import { AppointmentController } from './appointment.controller';
 // import auth from '../../middlewares/auth';
 // import { ENUM_USER_ROLE } from '../../../enums/user';
 const router = express.Router();
@@ -8,25 +8,19 @@ const router = express.Router();
 router.get(
   '/:id',
   // auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN),
-  ServiceController.getSingleService
+  AppointmentController.getSingleAppointment
 );
 
 router.get(
-  '/',
+  '/user/:id',
   // auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN),
-  ServiceController.getAllServices
-);
-
-router.patch(
-  '/addComment',
-  // auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN),
-  ServiceController.addComment
+  AppointmentController.getAllUserAppointment
 );
 
 router.post(
   '/',
   // auth(ENUM_USER_ROLE.BUYER, ENUM_USER_ROLE.SELLER),
-  ServiceController.createService
+  AppointmentController.addAppointment
 );
 
-export const ServiceRoutes = router;
+export const AppointmentRoutes = router;
