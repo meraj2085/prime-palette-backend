@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 import { FeedbackModel, IFeedback } from './feedback.interface';
 
-const userSchema = new Schema<IFeedback>(
+const feedbackSchema = new Schema<IFeedback>(
   {
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
@@ -16,4 +16,4 @@ const userSchema = new Schema<IFeedback>(
   }
 );
 
-export const Feedback = model<IFeedback, FeedbackModel>('Feedback', userSchema);
+export const Feedback = model<IFeedback, FeedbackModel>('Feedback', feedbackSchema);
