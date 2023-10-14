@@ -1,17 +1,24 @@
-import httpStatus from "http-status";
-import { Request, RequestHandler, Response } from "express";
-import { UserService } from "./user.service";
-import catchAsync from "../../../shared/catchAsync";
-import sendResponse from "../../../shared/sendResponse";
+import httpStatus from 'http-status';
+import { Request, RequestHandler, Response } from 'express';
+import { UserService } from './user.service';
+import catchAsync from '../../../shared/catchAsync';
+import sendResponse from '../../../shared/sendResponse';
+import { userFilterableFields } from './user.constant';
+import { paginationFields } from '../../../constants/pagination';
+import pick from '../../../shared/pick';
 
 const getUsers: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
-    const result = await UserService.getUsers();
+    const filters = pick(req.query, userFilterableFields);
+    const paginationOptions = pick(req.query, paginationFields);
+    const result = await UserService.getUsers(filters, paginationOptions);
+
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: "Users fetched successfully",
-      data: result,
+      message: 'Users fetched successfully',
+      meta: result.meta,
+      data: result.data,
     });
   }
 );
@@ -23,7 +30,7 @@ const getSingleUser: RequestHandler = catchAsync(
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: "User fetched successfully",
+      message: 'User fetched successfully',
       data: result,
     });
   }
@@ -37,7 +44,7 @@ const updateUser: RequestHandler = catchAsync(
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: "User updated successfully",
+      message: 'User updated successfully',
       data: result,
     });
   }
@@ -50,7 +57,7 @@ const deleteUser: RequestHandler = catchAsync(
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: "User deleted successfully",
+      message: 'User deleted successfully',
       data: result,
     });
   }
@@ -89,5 +96,5 @@ export const UserController = {
   updateUser,
   deleteUser,
   getMyProfile,
-  updateMyProfile
+  updateMyProfile,
 };

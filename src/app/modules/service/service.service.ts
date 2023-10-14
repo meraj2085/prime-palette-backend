@@ -1,5 +1,4 @@
 import { IService, IServiceFilters } from './service.interface';
-// import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { serviceFilterableFields } from './service.constant';
@@ -77,24 +76,26 @@ const addComment = async (data: any): Promise<IService | null> => {
   return service;
 };
 
-// const updateUser = async (
-//   id: string,
-//   payload: Partial<IUser>
-// ): Promise<IUser | null> => {
-//   const newUSer = await User.findOneAndUpdate({ _id: id }, payload, {
-//     new: true,
-//   });
-//   return newUSer;
-// };
+const updateService = async (
+  id: string,
+  payload: Partial<IService>
+): Promise<IService | null> => {
+  const updatedService = await Service.findOneAndUpdate({ _id: id }, payload, {
+    new: true,
+  });
+  return updatedService;
+};
 
-// const deleteUser = async (id: string): Promise<IUser | null> => {
-//   const result = await User.findByIdAndDelete(id);
-//   return result;
-// };
+const deleteService = async (id: string): Promise<IService | null> => {
+  const result = await Service.findByIdAndDelete(id);
+  return result;
+};
 
 export const ServiceService = {
   getAllServices,
   getSingleService,
   createService,
   addComment,
+  deleteService,
+  updateService,
 };

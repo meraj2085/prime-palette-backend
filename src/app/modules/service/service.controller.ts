@@ -65,36 +65,38 @@ const addComment: RequestHandler = catchAsync(
   }
 );
 
-// const updateUser: RequestHandler = catchAsync(
-//   async (req: Request, res: Response) => {
-//     const { id } = req.params;
-//     const userData = req.body;
-//     const result = await UserService.updateUser(id, userData);
-//     sendResponse(res, {
-//       statusCode: httpStatus.OK,
-//       success: true,
-//       message: 'User updated successfully',
-//       data: result,
-//     });
-//   }
-// );
+const updateService: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const serviceData = req.body;
+    const result = await ServiceService.updateService(id, serviceData);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Service updated successfully',
+      data: result,
+    });
+  }
+);
 
-// const deleteUser: RequestHandler = catchAsync(
-//   async (req: Request, res: Response) => {
-//     const { id } = req.params;
-//     const result = await UserService.deleteUser(id);
-//     sendResponse(res, {
-//       statusCode: httpStatus.OK,
-//       success: true,
-//       message: 'User deleted successfully',
-//       data: result,
-//     });
-//   }
-// );
+const deleteService: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const result = await ServiceService.deleteService(id);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Service deleted successfully',
+      data: result,
+    });
+  }
+);
 
 export const ServiceController = {
   getAllServices,
   getSingleService,
   createService,
+  deleteService,
   addComment,
+  updateService,
 };
