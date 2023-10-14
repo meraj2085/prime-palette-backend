@@ -30,10 +30,23 @@ const getSingleAppointment: RequestHandler = catchAsync(
   }
 );
 
+const updateSingleAppointment: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const data = req.body;
+    const result = await AppointmentService.updateSingleAppointment(data);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Appointment status updated successfully',
+      data: result,
+    });
+  }
+);
+
 const getAllUserAppointment: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
-    const id = req.params.id;
-    const result = await AppointmentService.getAllUserAppointment(id);
+    const user = req.user;
+    const result = await AppointmentService.getAllUserAppointment(user?.userId);
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
@@ -45,5 +58,6 @@ const getAllUserAppointment: RequestHandler = catchAsync(
 export const AppointmentController = {
   addAppointment,
   getSingleAppointment,
+  updateSingleAppointment,
   getAllUserAppointment,
 };

@@ -23,16 +23,16 @@ async function bootstrap() {
     console.error('Failed to connect database', err);
   }
 
-  process.on('unhandledRejection', error => {
-    if (server) {
-      server.close(() => {
-        console.error(error);
-        process.exit(1);
-      });
-    } else {
-      process.exit(1);
-    }
-  });
+  // process.on('unhandledRejection', error => {
+  //   if (server) {
+  //     server.close(() => {
+  //       console.error(error);
+  //       process.exit(1);
+  //     });
+  //   } else {
+  //     process.exit(1);
+  //   }
+  // });
 }
 
 bootstrap();
