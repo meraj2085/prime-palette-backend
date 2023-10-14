@@ -43,6 +43,19 @@ const updateSingleAppointment: RequestHandler = catchAsync(
   }
 );
 
+const updateScheduleAndStatus: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const data = req.body;
+    const result = await AppointmentService.updateScheduleAndStatus(data);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Appointment status & schedule updated successfully',
+      data: result,
+    });
+  }
+);
+
 const getAllUserAppointment: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const user = req.user;
@@ -55,9 +68,24 @@ const getAllUserAppointment: RequestHandler = catchAsync(
     });
   }
 );
+
+const getAllAppointment: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const result = await AppointmentService.getAllAppointment();
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Appointments fetched successfully',
+      data: result,
+    });
+  }
+);
+
 export const AppointmentController = {
   addAppointment,
   getSingleAppointment,
   updateSingleAppointment,
   getAllUserAppointment,
+  getAllAppointment,
+  updateScheduleAndStatus,
 };

@@ -31,10 +31,39 @@ const updateSingleAppointment = async (
   return appointment;
 };
 
+const updateScheduleAndStatus = async (
+  data: any
+): Promise<IAppointment | null> => {
+  const { id } = data;
+  const appointment = await Appointment.findByIdAndUpdate(
+    id,
+    {
+      appointment_date: data?.data?.appointment_date,
+      appointment_status: data?.data?.appointment_status,
+    },
+    {
+      new: true,
+    }
+  );
+  return appointment;
+};
+
 const getAllUserAppointment = async (
   id: string
 ): Promise<IAppointment[] | null> => {
   const appointments = await Appointment.find({ userId: id })
+    .populate({
+      path: 'serviceId',
+      model: 'Service',
+      select: 'name image_url price',
+    })
+    .sort({ createdAt: 'desc' })
+    .exec();
+  return appointments;
+};
+
+const getAllAppointment = async (): Promise<IAppointment[] | null> => {
+  const appointments = await Appointment.find()
     .populate({
       path: 'serviceId',
       model: 'Service',
@@ -50,4 +79,6 @@ export const AppointmentService = {
   getSingleAppointment,
   updateSingleAppointment,
   getAllUserAppointment,
+  getAllAppointment,
+  updateScheduleAndStatus,
 };
