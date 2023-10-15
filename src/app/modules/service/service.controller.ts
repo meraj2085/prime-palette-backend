@@ -52,19 +52,6 @@ const getSingleService: RequestHandler = catchAsync(
   }
 );
 
-const addComment: RequestHandler = catchAsync(
-  async (req: Request, res: Response) => {
-    const data = req.body;
-    const result = await ServiceService.addComment(data);
-    sendResponse(res, {
-      statusCode: httpStatus.OK,
-      success: true,
-      message: 'Comment added successfully',
-      data: result,
-    });
-  }
-);
-
 const updateService: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const { id } = req.params;
@@ -97,6 +84,5 @@ export const ServiceController = {
   getSingleService,
   createService,
   deleteService,
-  addComment,
   updateService,
 };

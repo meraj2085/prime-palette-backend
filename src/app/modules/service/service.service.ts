@@ -66,16 +66,6 @@ const getSingleService = async (id: string): Promise<IService | null> => {
   return service;
 };
 
-const addComment = async (data: any): Promise<IService | null> => {
-  const { id, comment } = data;
-  const service = await Service.findByIdAndUpdate(
-    id,
-    { $push: { comments: comment } },
-    { new: true }
-  );
-  return service;
-};
-
 const updateService = async (
   id: string,
   payload: Partial<IService>
@@ -95,7 +85,6 @@ export const ServiceService = {
   getAllServices,
   getSingleService,
   createService,
-  addComment,
   deleteService,
   updateService,
 };

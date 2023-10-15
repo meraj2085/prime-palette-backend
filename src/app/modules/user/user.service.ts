@@ -60,6 +60,59 @@ const getUsers = async (
   };
 };
 
+const getAdmins = async (
+  filters: IUserFilters,
+  paginationOptions: IPaginationOptions
+) => {
+  const { searchTerm, ...filtersData } = filters;
+  const { page, limit, skip, sortBy, sortOrder } =
+    paginationHelpers.calculatePagination(paginationOptions);
+
+  const andConditions = [];
+  if (searchTerm) {
+    andConditions.push({
+      $or: userFilterableFields.map(field => ({
+        [field]: {
+          $regex: searchTerm,
+          $options: 'i',
+        },
+      })),
+    });
+  }
+  if (Object.keys(filtersData).length) {
+    andConditions.push({
+      $and: Object.entries(filtersData).map(([field, value]) => ({
+        [field]: value,
+      })),
+    });
+  }
+
+  andConditions.push({ role: UserRoles.ADMIN });
+
+  const sortConditions: { [key: string]: SortOrder } = {};
+  if (sortBy && sortOrder) {
+    sortConditions[sortBy] = sortOrder;
+  }
+  const whereConditions =
+    andConditions.length > 0 ? { $and: andConditions } : {};
+
+  const result = await User.find(whereConditions)
+    .sort(sortConditions)
+    .skip(skip)
+    .limit(limit);
+
+  const total = await User.countDocuments(whereConditions);
+
+  return {
+    meta: {
+      page,
+      limit,
+      total,
+    },
+    data: result,
+  };
+};
+
 const getSingleUser = async (id: string): Promise<IUser | null> => {
   const users = await User.findById(id);
   return users;
@@ -113,6 +166,7 @@ const updateMyProfile = async (
 
 export const UserService = {
   getUsers,
+  getAdmins,
   getSingleUser,
   updateUser,
   deleteUser,

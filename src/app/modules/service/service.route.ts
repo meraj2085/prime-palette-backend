@@ -29,12 +29,6 @@ router.get(
   ServiceController.getAllServices
 );
 
-router.patch(
-  '/addComment',
-  // auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN),
-  ServiceController.addComment
-);
-
 router.post(
   '/',
   // auth(ENUM_USER_ROLE.BUYER, ENUM_USER_ROLE.SELLER),

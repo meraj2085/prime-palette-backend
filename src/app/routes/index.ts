@@ -7,6 +7,7 @@ import { FeedbackRoutes } from '../modules/feedback/feedback.route';
 import { AppointmentRoutes } from '../modules/appointment/appointment.route';
 import { BlogRoutes } from '../modules/blog/blog.route';
 import { FaqRoutes } from '../modules/faq/faq.route';
+import { ReviewRoutes } from '../modules/review/review.route';
 
 // Routes
 const moduleRoutes = [
@@ -37,6 +38,10 @@ const moduleRoutes = [
   {
     path: '/faq',
     route: FaqRoutes,
+  },
+  {
+    path: '/review',
+    route: ReviewRoutes,
   },
 ];
 
