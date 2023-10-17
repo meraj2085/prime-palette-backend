@@ -10,13 +10,11 @@ const router = express.Router();
 
 router.get(
   '/getAllUpcomingServices',
-  auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   ServiceController.getAllUpcomingServices
 );
 
 router.get(
   '/:id',
-  auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   ServiceController.getSingleService
 );
 
@@ -35,7 +33,6 @@ router.patch(
 
 router.get(
   '/',
-  auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   ServiceController.getAllServices
 );
 

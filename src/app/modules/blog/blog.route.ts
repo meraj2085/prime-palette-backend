@@ -9,12 +9,10 @@ const router = express.Router();
 // Routes
 router.get(
   '/',
-  auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   BlogController.getAllBlogs
 );
 router.get(
   '/:id',
-  auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   BlogController.getSingleBlog
 );
 router.post(
