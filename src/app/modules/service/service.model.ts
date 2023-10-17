@@ -9,6 +9,7 @@ const serviceSchema = new Schema<IService>(
     availability: { type: Boolean, default: true },
     image_url: { type: String, required: true },
     rating: { type: Number, default: 0 },
+    is_upcoming: { type: Boolean, default: false },
   },
   {
     timestamps: true,
