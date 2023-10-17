@@ -4,7 +4,7 @@ import { FeedbackModel, IFeedback } from './feedback.interface';
 const feedbackSchema = new Schema<IFeedback>(
   {
     name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
+    email: { type: String, required: true },
     feedback: { type: String, required: true },
     rating: { type: Number, required: true },
   },
@@ -16,4 +16,7 @@ const feedbackSchema = new Schema<IFeedback>(
   }
 );
 
-export const Feedback = model<IFeedback, FeedbackModel>('Feedback', feedbackSchema);
+export const Feedback = model<IFeedback, FeedbackModel>(
+  'Feedback',
+  feedbackSchema
+);

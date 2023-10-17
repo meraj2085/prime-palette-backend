@@ -7,11 +7,7 @@ import { ReviewValidation } from './review.validation';
 const router = express.Router();
 
 // Routes
-router.get(
-  '/:id',
-  auth(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
-  ReviewController.getReview
-);
+router.get('/:id', ReviewController.getReview);
 
 router.post(
   '/',
