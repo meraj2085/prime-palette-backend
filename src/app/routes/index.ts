@@ -9,6 +9,7 @@ import { BlogRoutes } from '../modules/blog/blog.route';
 import { FaqRoutes } from '../modules/faq/faq.route';
 import { ReviewRoutes } from '../modules/review/review.route';
 import { NewsRoutes } from '../modules/news/news.route';
+import { CategoryRoutes } from '../modules/category/category.route';
 
 // Routes
 const moduleRoutes = [
@@ -47,6 +48,10 @@ const moduleRoutes = [
   {
     path: '/news',
     route: NewsRoutes,
+  },
+  {
+    path: '/category',
+    route: CategoryRoutes,
   },
 ];
 

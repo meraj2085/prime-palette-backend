@@ -9,6 +9,7 @@ const addServiceZodSchema = z.object({
     image_url: z.string().nonempty(),
     rating: z.number().optional(),
     is_upcoming: z.boolean().optional(),
+    category_id: z.string().nonempty(),
   }),
 });
 
@@ -21,6 +22,7 @@ const updateServiceZodSchema = z.object({
     image_url: z.string().nonempty().optional(),
     rating: z.number().optional(),
     is_upcoming: z.boolean().optional(),
+    category_id: z.string().nonempty().optional(),
   }),
 });
 
