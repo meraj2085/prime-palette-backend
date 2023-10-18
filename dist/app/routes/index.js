@@ -14,6 +14,7 @@ const blog_route_1 = require("../modules/blog/blog.route");
 const faq_route_1 = require("../modules/faq/faq.route");
 const review_route_1 = require("../modules/review/review.route");
 const news_route_1 = require("../modules/news/news.route");
+const category_route_1 = require("../modules/category/category.route");
 // Routes
 const moduleRoutes = [
     {
@@ -51,6 +52,10 @@ const moduleRoutes = [
     {
         path: '/news',
         route: news_route_1.NewsRoutes,
+    },
+    {
+        path: '/category',
+        route: category_route_1.CategoryRoutes,
     },
 ];
 moduleRoutes.forEach(route => {

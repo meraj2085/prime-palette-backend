@@ -32,6 +32,19 @@ const getAllServices = (0, catchAsync_1.default)((req, res) => __awaiter(void 0,
         data: result.data,
     });
 }));
+const getServicesByCategory = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const filters = (0, pick_1.default)(req.query, service_constant_1.serviceFilterableFields);
+    const paginationOptions = (0, pick_1.default)(req.query, pagination_1.paginationFields);
+    const id = req.params.id;
+    const result = yield service_service_1.ServiceService.getServicesByCategory(filters, paginationOptions, id);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: 'Services by category fetched successfully !',
+        meta: result.meta,
+        data: result.data,
+    });
+}));
 const getAllUpcomingServices = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const filters = (0, pick_1.default)(req.query, service_constant_1.serviceFilterableFields);
     const paginationOptions = (0, pick_1.default)(req.query, pagination_1.paginationFields);
@@ -87,6 +100,7 @@ const deleteService = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
 }));
 exports.ServiceController = {
     getAllServices,
+    getServicesByCategory,
     getAllUpcomingServices,
     getSingleService,
     createService,

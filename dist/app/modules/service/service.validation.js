@@ -11,6 +11,7 @@ const addServiceZodSchema = zod_1.z.object({
         image_url: zod_1.z.string().nonempty(),
         rating: zod_1.z.number().optional(),
         is_upcoming: zod_1.z.boolean().optional(),
+        category_id: zod_1.z.string().nonempty(),
     }),
 });
 const updateServiceZodSchema = zod_1.z.object({
@@ -22,6 +23,7 @@ const updateServiceZodSchema = zod_1.z.object({
         image_url: zod_1.z.string().nonempty().optional(),
         rating: zod_1.z.number().optional(),
         is_upcoming: zod_1.z.boolean().optional(),
+        category_id: zod_1.z.string().nonempty().optional(),
     }),
 });
 exports.ServiceValidation = {
