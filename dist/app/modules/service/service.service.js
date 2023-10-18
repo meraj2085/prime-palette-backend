@@ -65,6 +65,47 @@ const getAllServices = (filters, paginationOptions) => __awaiter(void 0, void 0,
         data: result,
     };
 });
+const getServicesByCategory = (filters, paginationOptions, category_id) => __awaiter(void 0, void 0, void 0, function* () {
+    const { searchTerm } = filters, filtersData = __rest(filters, ["searchTerm"]);
+    const { page, limit, skip, sortBy, sortOrder } = paginationHelper_1.paginationHelpers.calculatePagination(paginationOptions);
+    const andConditions = [];
+    if (searchTerm) {
+        andConditions.push({
+            $or: service_constant_1.serviceFilterableFields.map(field => ({
+                [field]: {
+                    $regex: searchTerm,
+                    $options: 'i',
+                },
+            })),
+        });
+    }
+    if (Object.keys(filtersData).length) {
+        andConditions.push({
+            $and: Object.entries(filtersData).map(([field, value]) => ({
+                [field]: value,
+            })),
+        });
+    }
+    andConditions.push({ is_upcoming: false, category_id: category_id });
+    const sortConditions = {};
+    if (sortBy && sortOrder) {
+        sortConditions[sortBy] = sortOrder;
+    }
+    const whereConditions = andConditions.length > 0 ? { $and: andConditions } : {};
+    const result = yield service_model_1.Service.find(whereConditions)
+        .sort(sortConditions)
+        .skip(skip)
+        .limit(limit);
+    const total = yield service_model_1.Service.countDocuments(whereConditions);
+    return {
+        meta: {
+            page,
+            limit,
+            total,
+        },
+        data: result,
+    };
+});
 const getAllUpcomingServices = (filters, paginationOptions) => __awaiter(void 0, void 0, void 0, function* () {
     const { searchTerm } = filters, filtersData = __rest(filters, ["searchTerm"]);
     const { page, limit, skip, sortBy, sortOrder } = paginationHelper_1.paginationHelpers.calculatePagination(paginationOptions);
@@ -127,6 +168,7 @@ const deleteService = (id) => __awaiter(void 0, void 0, void 0, function* () {
 exports.ServiceService = {
     getAllServices,
     getAllUpcomingServices,
+    getServicesByCategory,
     getSingleService,
     createService,
     deleteService,
