@@ -9,6 +9,7 @@ export type IService = {
   image_url: string;
   rating: number;
   is_upcoming?: boolean;
+  category_id: string;
 };
 
 export type ServiceModel = Model<IService, Record<string, unknown>>;

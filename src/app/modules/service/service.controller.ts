@@ -26,23 +26,47 @@ const getAllServices = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-const getAllUpcomingServices = catchAsync(async (req: Request, res: Response) => {
-  const filters = pick(req.query, serviceFilterableFields);
-  const paginationOptions = pick(req.query, paginationFields);
+const getServicesByCategory = catchAsync(
+  async (req: Request, res: Response) => {
+    const filters = pick(req.query, serviceFilterableFields);
+    const paginationOptions = pick(req.query, paginationFields);
+    const id = req.params.id;
 
-  const result = await ServiceService.getAllUpcomingServices(
-    filters,
-    paginationOptions
-  );
+    const result = await ServiceService.getServicesByCategory(
+      filters,
+      paginationOptions,
+      id
+    );
 
-  sendResponse<IService[]>(res, {
-    statusCode: httpStatus.OK,
-    success: true,
-    message: 'Upcoming Services fetched successfully !',
-    meta: result.meta,
-    data: result.data,
-  });
-});
+    sendResponse<IService[]>(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Services by category fetched successfully !',
+      meta: result.meta,
+      data: result.data,
+    });
+  }
+);
+
+const getAllUpcomingServices = catchAsync(
+  async (req: Request, res: Response) => {
+    const filters = pick(req.query, serviceFilterableFields);
+    const paginationOptions = pick(req.query, paginationFields);
+
+    const result = await ServiceService.getAllUpcomingServices(
+      filters,
+      paginationOptions
+    );
+
+    sendResponse<IService[]>(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Upcoming Services fetched successfully !',
+      meta: result.meta,
+      data: result.data,
+    });
+  }
+);
 
 const createService: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
@@ -99,6 +123,7 @@ const deleteService: RequestHandler = catchAsync(
 
 export const ServiceController = {
   getAllServices,
+  getServicesByCategory,
   getAllUpcomingServices,
   getSingleService,
   createService,

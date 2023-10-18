@@ -8,15 +8,14 @@ const router = express.Router();
 
 // Routes
 
-router.get(
-  '/getAllUpcomingServices',
-  ServiceController.getAllUpcomingServices
-);
+router.get('/getAllUpcomingServices', ServiceController.getAllUpcomingServices);
 
 router.get(
-  '/:id',
-  ServiceController.getSingleService
+  '/getServicesByCategory/:id',
+  ServiceController.getServicesByCategory
 );
+
+router.get('/:id', ServiceController.getSingleService);
 
 router.delete(
   '/:id',
@@ -31,10 +30,7 @@ router.patch(
   ServiceController.updateService
 );
 
-router.get(
-  '/',
-  ServiceController.getAllServices
-);
+router.get('/', ServiceController.getAllServices);
 
 router.post(
   '/',
