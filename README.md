@@ -23,10 +23,8 @@ Prime Palette is a painting service website that offers distinct dashboards for 
   <span style="margin: 0 10px;">&nbsp;</span>
   <a href="https://nodejs.org" target="_blank" rel="noreferrer" style="margin-top: 10px;"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="50" height="50"/></a>
   <span style="margin: 0 10px;">&nbsp;</span>
-  <a href="https://expressjs.com" target="_blank" rel="noreferrer" style="margin-top: 10px;"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="45" height="45"/></a>
+  <a href="https://expressjs.com" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="45" height="45"/></a>
 </p>
-
-
 
 ## Functional Requirements
 
