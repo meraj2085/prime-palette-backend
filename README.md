@@ -1,4 +1,4 @@
-# Prime Palette
+# Prime Palette Backend
 
 Prime Palette is a painting service website that offers distinct dashboards for administrators, regular users, and super administrators. Users have the flexibility to select services from various categories and schedule appointments. Administrators are empowered to either approve or reschedule appointments and maintain control over website activities through a secure dashboard. Super administrators are responsible for managing the administrators.
 
