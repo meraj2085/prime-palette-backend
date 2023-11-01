@@ -1,6 +1,6 @@
 # Prime Palette
 
-Painting service providing website. Separate dashboard for admins, users and super admin. Users can choose any service among the service categories and book appointments. Admin can approve or re schedule appointment. Admin can control website activities through protected dashboard and super admin can manage admins.
+Prime Palette is a painting service website that offers distinct dashboards for administrators, regular users, and super administrators. Users have the flexibility to select services from various categories and schedule appointments. Administrators are empowered to either approve or reschedule appointments and maintain control over website activities through a secure dashboard. Super administrators are responsible for managing the administrators.
 
 ## Credentials
 
