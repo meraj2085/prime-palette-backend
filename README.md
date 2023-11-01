@@ -2,29 +2,6 @@
 
 Prime Palette is a painting service website that offers distinct dashboards for administrators, regular users, and super administrators. Users have the flexibility to select services from various categories and schedule appointments. Administrators are empowered to either approve or reschedule appointments and maintain control over website activities through a secure dashboard. Super administrators are responsible for managing the administrators.
 
-## Credentials
-
-User credentials
-
-```bash
-  meraj@gmail.com
-  password: 123456
-```
-
-Admin credentials
-
-```bash
-  admin@gmail.com
-  password: 123456
-```
-
-Super Admin credentials
-
-```bash
-  superadmin@gmail.com
-  password: 123456
-```
-
 ## Functional Requirements
 
 ### Student
