@@ -117,4 +117,7 @@ Prime Palette is a painting service website that offers distinct dashboards for 
 - `PATCH /category/:id`
 
 
-![Logo](https://res.cloudinary.com/dn163fium/image/upload/v1697588920/psog4rriy6tlbcs1edhh.png)
+<p align="center">
+  <img src="https://res.cloudinary.com/dn163fium/image/upload/v1697588920/psog4rriy6tlbcs1edhh.png" alt="Logo" width="50%" style="max-width: 200px;">
+</p>
+
