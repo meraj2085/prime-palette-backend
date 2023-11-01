@@ -16,25 +16,31 @@ Prime Palette is a painting service website that offers distinct dashboards for 
 
 ## Functional Requirements
 
-### Student
+### User
 
-- Student can login and log out.
-- Student can manage and update their profile.
-- Student can update certain fields.
+- User can login, signup and log out.
+- User can manage and update their profile.
+- Users can add services to their booking.
+- Users can leave reviews and ratings for services.
+- User can view booking history, check booking statuses.
+- Feedback forms for users to submit comments and suggestions.
 
 ### Admin
 
 - Admin can log in and log out.
 - Admin can manage and update their profile.
-- Admin can only update certain fields.
-- Admin can manage user accounts:
-  - Change Password
+- Admins can access centralized dashboard to monitor and manage website activities.
+- Admins can add, edit, and manage user accounts.
+- Admins can add, edit, and remove service listings.
+- Admins can view and manage booking requests.
+- Admins can accept, reject, or adjust schedules as needed.
+- Admin can control website content, including blog posts and FAQs.
 
-### Faculty
+### Super Admin
 
-- Faculty can log in and log out.
-- Faculty can manage and update their profile.
-- Faculty can only update certain fields.
+- Super Admin can log in and log out.
+- Super Admin can manage and update their profile.
+- Super Admin can add new admin users to the system.
 
 ## API Endpoints
 
