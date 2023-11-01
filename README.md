@@ -2,7 +2,11 @@
   <img src="https://res.cloudinary.com/dn163fium/image/upload/v1697588920/psog4rriy6tlbcs1edhh.png" alt="Logo" width="50" style="max-width: 200px;">
 </p>
 
-# Prime Palette
+<p align="center">
+  Prime Palette
+</p>
+
+#
 
 Prime Palette is a painting service website that offers distinct dashboards for administrators, regular users, and super administrators. Users have the flexibility to select services from various categories and schedule appointments. Administrators are empowered to either approve or reschedule appointments and maintain control over website activities through a secure dashboard. Super administrators are responsible for managing the administrators.
 
@@ -119,4 +123,3 @@ Prime Palette is a painting service website that offers distinct dashboards for 
 - `GET /category`
 - `POST /category`
 - `PATCH /category/:id`
-
