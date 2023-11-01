@@ -38,20 +38,31 @@ Prime Palette is a painting service website that offers distinct dashboards for 
 
 ## API Endpoints
 
-### User
+### Users
 
-- `POST /users/create-student`
-- `POST /users/create-faculty`
-- `POST /users/create-admin`
+- `GET /users`
+- `GET /users/:id`
+- `GET /users/getAdmins`
+- `GET /users/my-profile`
+- `PATCH /users/:id`
+- `PATCH /users/my-profile`
+- `DELETE /users/:id`
 
-### Student
+### Authentication
 
-- `GET /students`
-- `GET /students?searchTerm=fr797`
-- `GET /students?page=1&limit=10&sortBy=gender&sortOrder=asc`
-- `GET /students/:id`
-- `PATCH /students/:id`
-- `DELETE /students/:id`
+- `POST /auth/login`
+- `POST /auth/signup`
+- `POST /auth/changePassword`
+
+### Service
+
+- `GET /service`
+- `GET /service/:id`
+- `GET /service/getAllUpcomingServices`
+- `GET /service/getServicesByCategory/:id`
+- `POST /service`
+- `PATCH /service/:id`
+- `DELETE /service/:id`
 
 ### Faculty
 
@@ -101,10 +112,5 @@ Prime Palette is a painting service website that offers distinct dashboards for 
 - `PATCH /academic-faculties/:id`
 - `DELETE /academic-faculties/:id`
 
-### Authentication
-
-- `POST /auth/login`
-- `POST /auth/change-password`
-- `POST /auth/refresh-token`
 
 Postman Documenttaion: [Click Here](https://documenter.getpostman.com/view/26682150/2s93zB72V9#acc25f08-de78-478b-809d-837ce239d2b3)
