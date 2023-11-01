@@ -1,121 +1,121 @@
-# Prime Palette
+<p align="center">
+  <img src="https://res.cloudinary.com/dn163fium/image/upload/v1697588920/psog4rriy6tlbcs1edhh.png" alt="Logo" width="50" style="max-width: 200px;">
+</p>
 
-Painting service providing website. Separate dashboard for admins, users and super admin. Users can choose any service among the service categories and book appointments. Admin can approve or re schedule appointment. Admin can control website activities through protected dashboard and super admin can manage admins.
+#
 
-## Credentials
+**Prime Palette** is a painting service website that offers distinct dashboards for administrators, regular users, and super administrators. Users have the flexibility to select services from various categories and schedule appointments. Administrators are empowered to either approve or reschedule appointments and maintain control over website activities through a secure dashboard. Super administrators are responsible for managing the administrators.
 
-User credentials
+## Tech Stack
 
-```bash
-  meraj@gmail.com
-  password: 123456
-```
-
-Admin credentials
-
-```bash
-  admin@gmail.com
-  password: 123456
-```
-
-Super Admin credentials
-
-```bash
-  superadmin@gmail.com
-  password: 123456
-```
+<div align="left">  
+<a href="https://www.typescriptlang.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/typescript-original.svg" alt="TypeScript" height="40" /></a>  
+<span style="margin: 0 10px;">&nbsp;</span>
+<a href="https://www.mongodb.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/mongodb-original-wordmark.svg" alt="MongoDB" height="40" /></a>  
+<span style="margin: 0 10px;">&nbsp;</span>
+<a href="https://nodejs.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/nodejs-original-wordmark.svg" alt="Node.js" height="65" /></a>  
+<span style="margin: 0 10px;">&nbsp;</span>
+<a href="https://expressjs.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/express-original-wordmark.svg" alt="Express.js" height="60" /></a>  
+</div>
 
 ## Functional Requirements
 
-### Student
+### User
 
-- Student can login and log out.
-- Student can manage and update their profile.
-- Student can update certain fields.
+- User can login, signup and log out.
+- User can manage and update their profile.
+- Users can add services to their booking.
+- Users can leave reviews and ratings for services.
+- User can view booking history, check booking statuses.
+- Feedback forms for users to submit comments and suggestions.
 
 ### Admin
 
 - Admin can log in and log out.
 - Admin can manage and update their profile.
-- Admin can only update certain fields.
-- Admin can manage user accounts:
-  - Change Password
+- Admins can access centralized dashboard to monitor and manage website activities.
+- Admins can add, edit, and manage user accounts.
+- Admins can add, edit, and remove service listings.
+- Admins can view and manage booking requests.
+- Admins can accept, reject, or adjust schedules as needed.
+- Admin can control website content, including blog posts and FAQs.
 
-### Faculty
+### Super Admin
 
-- Faculty can log in and log out.
-- Faculty can manage and update their profile.
-- Faculty can only update certain fields.
+- Super Admin can log in and log out.
+- Super Admin can manage and update their profile.
+- Super Admin can add new admin users to the system.
 
 ## API Endpoints
 
-### User
+### Users
 
-- `POST /users/create-student`
-- `POST /users/create-faculty`
-- `POST /users/create-admin`
-
-### Student
-
-- `GET /students`
-- `GET /students?searchTerm=fr797`
-- `GET /students?page=1&limit=10&sortBy=gender&sortOrder=asc`
-- `GET /students/:id`
-- `PATCH /students/:id`
-- `DELETE /students/:id`
-
-### Faculty
-
-- `GET /faculties`
-- `GET /faculties?searchTerm=john`
-- `GET /faculties?page=1&limit=10&sortBy=gender&sortOrder=asc`
-- `GET /faculties/:id`
-- `PATCH /faculties/:id`
-- `DELETE /faculties/:id`
-
-### Admin
-
-- `GET /admins`
-- `GET /admins?searchTerm=us88`
-- `GET /admins?page=1&limit=10&sortBy=gender&sortOrder=asc`
-- `GET /admins/:id`
-- `PATCH /admins/:id`
-- `DELETE /admins/:id`
-
-### Academic Semester
-
-- `POST /academic-semesters/create-semester`
-- `GET /academic-semesters`
-- `GET /academic-semesters?searchTerm=fal`
-- `GET /academic-semesters?page=1&limit=10&sortBy=year&sortOrder=asc`
-- `GET /academic-semesters/:id`
-- `PATCH /academic-semesters/:id`
-- `DELETE /academic-semesters/:id`
-
-### Academic Department
-
-- `POST /academic-departments/create-department`
-- `GET /academic-departments`
-- `GET /academic-departments?searchTerm=math`
-- `GET /academic-departments?page=1&limit=10&sortBy=title&sortOrder=asc`
-- `GET /academic-departments/:id`
-- `PATCH /academic-departments/:id`
-- `DELETE /academic-departments/:id`
-
-### Academic Faculty
-
-- `POST /academic-faculties/create-faculty`
-- `GET /academic-faculties`
-- `GET /academic-faculties?searchTerm=com`
-- `GET /academic-faculties?page=1&limit=10&sortBy=title&sortOrder=asc`
-- `GET /academic-faculties/:id`
-- `PATCH /academic-faculties/:id`
-- `DELETE /academic-faculties/:id`
+- `GET /users`
+- `GET /users/:id`
+- `GET /users/getAdmins`
+- `GET /users/my-profile`
+- `PATCH /users/:id`
+- `PATCH /users/my-profile`
+- `DELETE /users/:id`
 
 ### Authentication
 
 - `POST /auth/login`
-- `POST /auth/change-password`
-- `POST /auth/refresh-token`
+- `POST /auth/signup`
+- `POST /auth/changePassword`
 
-Postman Documenttaion: [Click Here](https://documenter.getpostman.com/view/26682150/2s93zB72V9#acc25f08-de78-478b-809d-837ce239d2b3)
+### Service
+
+- `GET /service`
+- `GET /service/:id`
+- `GET /service/getAllUpcomingServices`
+- `GET /service/getServicesByCategory/:id`
+- `POST /service`
+- `PATCH /service/:id`
+- `DELETE /service/:id`
+
+### Appointment
+
+- `GET /appointment`
+- `GET /appointment/:id`
+- `GET /appointment/getAllAppointment`
+- `POST /appointment`
+- `PATCH /appointment/update-status`
+- `PATCH /appointment/updateScheduleAndStatus`
+
+### Blog
+
+- `GET /blog`
+- `GET /blog/:id`
+- `POST /blog`
+- `PATCH /blog/:id`
+- `DELETE /blog/:id`
+
+### Faq
+
+- `GET /faq`
+- `GET /faq/:id`
+- `POST /faq`
+- `PATCH /faq/:id`
+- `DELETE /faq/:id`
+
+### Review
+
+- `GET /review/:id`
+- `POST /review`
+
+### News
+
+- `GET /news`
+- `POST /news`
+
+### Feedback
+
+- `GET /feedback`
+- `POST /feedback`
+
+### Category
+
+- `GET /category`
+- `POST /category`
+- `PATCH /category/:id`
