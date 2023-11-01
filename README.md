@@ -64,53 +64,51 @@ Prime Palette is a painting service website that offers distinct dashboards for 
 - `PATCH /service/:id`
 - `DELETE /service/:id`
 
-### Faculty
+### Appointment
 
-- `GET /faculties`
-- `GET /faculties?searchTerm=john`
-- `GET /faculties?page=1&limit=10&sortBy=gender&sortOrder=asc`
-- `GET /faculties/:id`
-- `PATCH /faculties/:id`
-- `DELETE /faculties/:id`
+- `GET /appointment`
+- `GET /appointment/:id`
+- `GET /appointment/getAllAppointment`
+- `POST /appointment`
+- `PATCH /appointment/update-status`
+- `PATCH /appointment/updateScheduleAndStatus`
 
-### Admin
+### Blog
 
-- `GET /admins`
-- `GET /admins?searchTerm=us88`
-- `GET /admins?page=1&limit=10&sortBy=gender&sortOrder=asc`
-- `GET /admins/:id`
-- `PATCH /admins/:id`
-- `DELETE /admins/:id`
+- `GET /blog`
+- `GET /blog/:id`
+- `POST /blog`
+- `PATCH /blog/:id`
+- `DELETE /blog/:id`
 
-### Academic Semester
+### Faq
 
-- `POST /academic-semesters/create-semester`
-- `GET /academic-semesters`
-- `GET /academic-semesters?searchTerm=fal`
-- `GET /academic-semesters?page=1&limit=10&sortBy=year&sortOrder=asc`
-- `GET /academic-semesters/:id`
-- `PATCH /academic-semesters/:id`
-- `DELETE /academic-semesters/:id`
+- `GET /faq`
+- `GET /faq/:id`
+- `POST /faq`
+- `PATCH /faq/:id`
+- `DELETE /faq/:id`
 
-### Academic Department
+### Review
 
-- `POST /academic-departments/create-department`
-- `GET /academic-departments`
-- `GET /academic-departments?searchTerm=math`
-- `GET /academic-departments?page=1&limit=10&sortBy=title&sortOrder=asc`
-- `GET /academic-departments/:id`
-- `PATCH /academic-departments/:id`
-- `DELETE /academic-departments/:id`
+- `GET /review/:id`
+- `POST /review`
 
-### Academic Faculty
+### News
 
-- `POST /academic-faculties/create-faculty`
-- `GET /academic-faculties`
-- `GET /academic-faculties?searchTerm=com`
-- `GET /academic-faculties?page=1&limit=10&sortBy=title&sortOrder=asc`
-- `GET /academic-faculties/:id`
-- `PATCH /academic-faculties/:id`
-- `DELETE /academic-faculties/:id`
+- `GET /news`
+- `POST /news`
+
+### Feedback
+
+- `GET /feedback`
+- `POST /feedback`
+
+### Category
+
+- `GET /category`
+- `POST /category`
+- `PATCH /category/:id`
 
 
 Postman Documenttaion: [Click Here](https://documenter.getpostman.com/view/26682150/2s93zB72V9#acc25f08-de78-478b-809d-837ce239d2b3)
