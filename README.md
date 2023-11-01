@@ -2,7 +2,7 @@
   <img src="https://res.cloudinary.com/dn163fium/image/upload/v1697588920/psog4rriy6tlbcs1edhh.png" alt="Logo" width="50" style="max-width: 200px;">
 </p>
 
-<p align="center">
+<p style="margin: 10px; font-size: 24px;" align="center">
   Prime Palette
 </p>
 
